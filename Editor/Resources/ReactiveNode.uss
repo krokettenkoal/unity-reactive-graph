@@ -1,0 +1,26 @@
+#title {
+    -unity-font-style: bold;
+}
+
+#extension {
+    background-color: rgba(58, 58, 58, .8);
+}
+
+.custom-properties-label {
+    -unity-font-style: bold;
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+
+.custom-property-field {
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.custom-property-field > * {
+    flex: 1 1 50%;
+}
+
+.unity-curve-field .unity-curve-field__input {
+    flex-basis: 50px;
+}

@@ -1,0 +1,14 @@
+GridBackground {
+    --grid-background-color: #282828;
+    --line-color: rgba(193, 196, 192, 0.1);
+    --thick-line-color: rgba(193, 196, 192, 0.1);
+    --spacing: 50;
+}
+
+.node-entry > .main {
+    background-color: gold;
+}
+
+.node-effect > .main {
+    background-color: #0d9195;
+}
