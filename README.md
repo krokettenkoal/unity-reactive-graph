@@ -41,7 +41,7 @@ To apply the behaviour defined in a Reactive Graph asset to a Game Object in the
 ### Writing Reactive Object components
 Writing your own Reactive Object components is as simple as can be. Just follow the few steps described below.
 1. Create a **new script** somewhere in your `Assets` folder
-2. Make your class **inherit** from `ReactiveObject` (namespace: `Reactive.Runtime`) instead of `MonoBehaviour`
+2. Make your class **inherits** from `ReactiveObject` (namespace: `Reactive.Runtime`) instead of `MonoBehaviour`
 3. **Override** the `Awake` method and, inside the method, assign a valid input source to the object's `Input` property. The input source needs to implement the `IReactiveInputSource` interface. Check out the (Creating input sources)[#creating-input-sources] section for details.
 4. **Make sure to call `base.Awake()` after you have assigned the input source!**
 
