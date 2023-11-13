@@ -52,5 +52,5 @@ How the `Value` property is calculated is fully up to you and heavily depends on
 ## Compatibility
 Reactive Graph is written and tested in Unity `2022.3.7f`. It is **highly recommended** to use a Unity version that is as close to the source code's version as possible. In general, you should be fine with any `2022.3` version.
 
-## Known bugs
+## Known issues
 * **Missing references after saving to an existing asset:** When saving a Reactive Graph to an existing asset, the old asset is deleted and a new asset with the same name is created. This causes Unity to lose all references to the asset, requiring the user to re-assign all references to the Reactive Graph asset.
