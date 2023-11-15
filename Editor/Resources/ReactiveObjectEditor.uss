@@ -1,0 +1,23 @@
+﻿.source-label {
+    -unity-font-style: bold;
+    margin: 2px 0 2px 4px;
+}
+
+.source-wrapper {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-left: 3px;
+}
+
+.source-field {
+    flex-grow: 1;
+}
+
+.source-field#sourceMember {
+    flex-grow: 2;
+}
+
+.source-field.hidden {
+    display: none;
+}
