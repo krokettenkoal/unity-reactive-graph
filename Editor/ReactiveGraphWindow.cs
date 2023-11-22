@@ -12,7 +12,7 @@ namespace Reactive.Editor
     /// <summary>
     /// Reactive graph editor window
     /// </summary>
-    public class ReactiveGraph : EditorWindow
+    public class ReactiveGraphWindow : EditorWindow
     {
         /// <summary>
         /// The graph view to display/edit
@@ -32,7 +32,7 @@ namespace Reactive.Editor
         [MenuItem("Window/Reactive Graph")]
         public static void OpenAudioReactiveGraphWindow()
         {
-            var window = GetWindow<ReactiveGraph>();
+            var window = GetWindow<ReactiveGraphWindow>();
             window.titleContent = new GUIContent(GraphTitle);
         }
         
@@ -113,7 +113,7 @@ namespace Reactive.Editor
         /// <param name="saveAs"></param>
         private void RequestDataOperation(bool save, bool saveAs = false)
         {
-            var saveUtility = GraphSaveUtility.GetInstance(_graphView);
+            var saveUtility = ReactiveGraphSaveUtility.GetInstance(_graphView);
             if (save)
                 saveUtility.SaveGraph(saveAs);
             else
@@ -127,7 +127,7 @@ namespace Reactive.Editor
         /// </summary>
         private void ClearGraph()
         {
-            var util = GraphSaveUtility.GetInstance(_graphView);
+            var util = ReactiveGraphSaveUtility.GetInstance(_graphView);
             util.ClearGraph();
         }
 

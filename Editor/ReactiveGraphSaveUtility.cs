@@ -12,7 +12,7 @@ namespace Reactive.Editor
     /// <summary>
     /// Utility class for saving and loading reactive graphs
     /// </summary>
-    public class GraphSaveUtility
+    public class ReactiveGraphSaveUtility
     {
         /// <summary>
         /// The reactive graph view that this utility is used for
@@ -40,13 +40,13 @@ namespace Reactive.Editor
         private const string DefaultAssetName = "New Reactive Graph";
         
         /// <summary>
-        /// Instantiates a new instance of the <see cref="GraphSaveUtility"/> class for the specified <paramref name="targetView"/>
+        /// Instantiates a new instance of the <see cref="ReactiveGraphSaveUtility"/> class for the specified <paramref name="targetView"/>
         /// </summary>
         /// <param name="targetView">The reactive graph view to instantiate the utility for</param>
         /// <returns>The newly created utility</returns>
-        public static GraphSaveUtility GetInstance(ReactiveGraphView targetView)
+        public static ReactiveGraphSaveUtility GetInstance(ReactiveGraphView targetView)
         {
-            return new GraphSaveUtility
+            return new ReactiveGraphSaveUtility
             {
                 _graphView = targetView
             };
