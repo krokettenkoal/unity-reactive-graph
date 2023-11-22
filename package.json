@@ -1,0 +1,20 @@
+{
+	"name": "dev.cajetan.reactive-graph",
+	"version": "0.1.0",
+	"description": "A node-based solution for creating reactive Unity game objects",
+	"displayName": "Reactive Graph",
+	"unity": "2022.3",
+	"author": {
+		"name": "Cajetan Grill",
+		"email": "me@cajetan.dev",
+		"url": "https://cajetan.dev/"
+	},
+	"documentationUrl": "https://github.com/krokettenkoal/unity-reactive-graph",
+	"license": "See LICENSE file",
+	"licensesUrl": "https://github.com/krokettenkoal/unity-reactive-graph/blob/main/LICENSE",
+	"repository": {
+	"type": "git",
+	"url": "https://github.com/krokettenkoal/unity-reactive-graph.git"
+	},
+	"keywords": ["editor", "graph", "reactive"]
+}
