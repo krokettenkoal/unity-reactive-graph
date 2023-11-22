@@ -13,6 +13,9 @@ namespace Reactive.Editor.Inspectors
     [CustomEditor(typeof(ReactiveObject))]
     public class ReactiveObjectEditor : UnityEditor.Editor
     {
+        [SerializeField]
+        private StyleSheet styleSheet;
+        
         private SerializedProperty _graph;
         private SerializedProperty _sourceObject;
         private SerializedProperty _sourceObjectEditor;
@@ -22,7 +25,6 @@ namespace Reactive.Editor.Inspectors
 
         private PopupField<MemberInfo> _sourceMemberField;
         
-        private const string StyleSheetName = "ReactiveObjectEditor";
         private const string HiddenClassName = "hidden";
         private const string InputObjectTooltip = "The source object that provides the input value for the reactive graph";
         private const string InputMemberTooltip = "The member (property, field or method) of the source object that provides the input value for the reactive graph";
@@ -73,8 +75,8 @@ namespace Reactive.Editor.Inspectors
             sourceWrapper.Add(sourceObjectField);
             sourceWrapper.Add(_sourceMemberField);
             
-            var styleSheet = Resources.Load<StyleSheet>(StyleSheetName);
-            root.styleSheets.Add(styleSheet);
+            if(styleSheet)
+                root.styleSheets.Add(styleSheet);
             
             root.Add(graphField);
             root.Add(sourceLabel);

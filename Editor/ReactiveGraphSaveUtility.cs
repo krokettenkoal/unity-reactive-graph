@@ -212,9 +212,7 @@ namespace Reactive.Editor
         {
             foreach (var nodeData in _graphData.nodes)
             {
-                var node = ReactiveGraphView.CreateNode(nodeData.type);
-                node.SetNodeData(nodeData);
-                _graphView.AddElement(node);
+                _graphView.AddNode(nodeData);
             }
         }
 

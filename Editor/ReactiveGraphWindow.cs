@@ -14,6 +14,11 @@ namespace Reactive.Editor
     /// </summary>
     public class ReactiveGraphWindow : EditorWindow
     {
+        [SerializeField, Tooltip("The style sheet to use for the graph view")]
+        private StyleSheet graphStyleSheet;
+        [SerializeField, Tooltip("The style sheet to use for the nodes in the graph view")]
+        private StyleSheet nodeStyleSheet;
+        
         /// <summary>
         /// The graph view to display/edit
         /// </summary>
@@ -46,7 +51,8 @@ namespace Reactive.Editor
 
         private void OnDisable()
         {
-            rootVisualElement.Remove(_graphView);
+            if(_graphView != null)
+                rootVisualElement.Remove(_graphView);
         }
 
         /// <summary>
@@ -56,8 +62,12 @@ namespace Reactive.Editor
         {
             _graphView = new ReactiveGraphView
             {
-                name = GraphTitle
+                name = GraphTitle,
+                NodeStyleSheet = nodeStyleSheet,
             };
+            
+            if(graphStyleSheet)
+                _graphView.styleSheets.Add(graphStyleSheet);
             
             _graphView.StretchToParentSize();
             rootVisualElement.Add(_graphView);

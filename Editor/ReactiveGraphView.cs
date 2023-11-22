@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Reactive.Editor.Nodes;
 using Reactive.Runtime;
+using Reactive.Runtime.Nodes;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -25,13 +26,17 @@ namespace Reactive.Editor
         /// <seealso cref="AssetPath"/>
         /// <remarks>The asset name does not include any file extensions</remarks>
         public string AssetName => Path.GetFileNameWithoutExtension(AssetPath);
+        
+        /// <summary>
+        /// The style sheet to add to each node in the graph view
+        /// </summary>
+        internal StyleSheet NodeStyleSheet { get; set; }
      
         /// <summary>
         /// Constructs a new reactive graph view and sets up the required elements, manipulators and stylesheets
         /// </summary>
         public ReactiveGraphView()
         {
-            styleSheets.Add(Resources.Load<StyleSheet>("ReactiveGraph"));
             SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
             
             //  Add manipulation handlers for dragging
@@ -112,11 +117,14 @@ namespace Reactive.Editor
         /// Creates a new reactive node of the specified type
         /// </summary>
         /// <param name="nodeType">The type of the reactive node to create</param>
+        /// <param name="styleSheet">The style sheet to add to the newly create node (optional)</param>
         /// <returns>The newly created reactive node</returns>
-        public static ReactiveNode CreateNode(ReactiveNodeType nodeType)
+        private static ReactiveNode CreateNode(ReactiveNodeType nodeType, StyleSheet styleSheet = null)
         {
             var node = ReactiveNodeFactory.CreateNodeOfType(Guid.NewGuid().ToString(), ReactiveNodeFactory.GetNodeTitle(nodeType), nodeType);
-            node.styleSheets.Add(Resources.Load<StyleSheet>("ReactiveNode"));
+            if(styleSheet)
+                node.styleSheets.Add(styleSheet);
+            
             node.AddControls();
             node.AddClassNames();
             
@@ -138,14 +146,23 @@ namespace Reactive.Editor
             return node;
         }
 
+        private static ReactiveNode CreateNode(ReactiveNodeData data, StyleSheet styleSheet = null)
+        {
+            var node = CreateNode(data.type, styleSheet);
+            node.SetNodeData(data);
+            return node;
+        }
+
         /// <summary>
-        /// Creates a new node of the specified type and adds it to the graph
+        /// Creates a new reactive node of the specified type and adds it to the graph
         /// </summary>
         /// <param name="nodeType">The type of node to create</param>
-        /// <remarks>This is a shorthand for <see cref="CreateNode"/> and <see cref="GraphView.AddElement"/></remarks>
-        public void AddNode(ReactiveNodeType nodeType)
-        {
-            AddElement(CreateNode(nodeType));
-        }
+        public void AddNode(ReactiveNodeType nodeType) => AddElement(CreateNode(nodeType, NodeStyleSheet));
+        
+        /// <summary>
+        /// Creates a new reactive node with the specified data and adds it to the graph
+        /// </summary>
+        /// <param name="data">The data to create a reactive node from</param>
+        public void AddNode(ReactiveNodeData data) => AddElement(CreateNode(data, NodeStyleSheet));
     }
 }
