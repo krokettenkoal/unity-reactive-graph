@@ -1,0 +1,19 @@
+{
+    "name": "Dev.Cajetan.Reactive.Editor",
+    "rootNamespace": "Reactive.Editor",
+    "references": [
+        "GUID:1c2cfb00d79d9634888abbea698bbc5f",
+        "GUID:93ca17decaaccc0409e175221117ee80"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

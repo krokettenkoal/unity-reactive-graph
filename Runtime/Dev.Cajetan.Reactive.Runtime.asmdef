@@ -1,0 +1,16 @@
+{
+    "name": "Dev.Cajetan.Reactive.Runtime",
+    "rootNamespace": "Reactive.Runtime",
+    "references": [
+        "GUID:1c2cfb00d79d9634888abbea698bbc5f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
